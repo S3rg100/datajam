@@ -1,0 +1,10 @@
+metrica,valor
+Total accidentes,2963.0
+Sin coordenadas,46.0
+Con coordenadas,2917.0
+Match <=500m,1758.0
+Match >500m (descartados),1159.0
+Con velocidad asignada,1754.0
+Distancia promedio (m),291.0298517304472
+Distancia mediana (m),283.534677523171
+Distancia max (m),554.9530478169578

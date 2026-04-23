@@ -1,3 +1,29 @@
+# -*- coding: utf-8 -*-
+"""
+=============================================================================
+  CONSTRUCCIÓN DE TABLA DE CÁMARAS SALVAVIDAS - Bogotá D.C.
+=============================================================================
+  Convierte el shapefile de cámaras salvavidas (formato geoespacial SHP)
+  a formatos tabulares (CSV, XLSX) y GeoJSON para facilitar su uso en
+  el análisis posterior.
+
+  ENTRADA:
+    data/raw_data/camaras_salvavidas/Camaras_Salvavidas_Bogota.shp
+      Shapefile con 92 puntos georreferenciados de cámaras de fotodetección.
+
+  SALIDAS:
+    data/processed_data/camaras_salvavidas/tabla_camaras_salvavidas_raw.csv
+    data/processed_data/camaras_salvavidas/tabla_camaras_salvavidas_raw.xlsx
+    data/processed_data/camaras_salvavidas/camaras_salvavidas_raw.geojson
+
+  PROCESO:
+    1. Lee el shapefile y valida que tenga un CRS definido.
+    2. Reproyecta las coordenadas a WGS84 (EPSG:4326) para compatibilidad.
+    3. Extrae latitud y longitud desde la geometría de punto.
+    4. Agrega un identificador técnico secuencial (id_registro).
+    5. Exporta a CSV, XLSX y GeoJSON.
+=============================================================================
+"""
 import geopandas as gpd
 import pandas as pd
 from pathlib import Path

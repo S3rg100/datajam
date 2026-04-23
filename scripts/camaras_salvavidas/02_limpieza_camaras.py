@@ -1,3 +1,29 @@
+# -*- coding: utf-8 -*-
+"""
+=============================================================================
+  LIMPIEZA DE CÁMARAS SALVAVIDAS - Bogotá D.C.
+=============================================================================
+  Limpia y normaliza la tabla de cámaras salvavidas generada en el paso 01.
+
+  ENTRADA:
+    data/raw_data/camaras_salvavidas/Camaras_Salvavidas_Bogota.shp
+
+  SALIDAS:
+    data/cleaned_data/camaras_salvavidas/tabla_camaras_salvavidas_clean.csv
+    data/cleaned_data/camaras_salvavidas/tabla_camaras_salvavidas_clean.xlsx
+    data/cleaned_data/camaras_salvavidas/camaras_salvavidas_clean.geojson
+    data/cleaned_data/camaras_salvavidas/perfil_calidad_camaras.csv
+
+  TRANSFORMACIONES APLICADAS:
+    1. Reproyección de coordenadas a WGS84 (EPSG:4326).
+    2. Normalización de nombres de columnas (minúsculas, sin tildes, snake_case).
+    3. Limpieza de valores de texto (espacios, caracteres especiales).
+    4. Renombre de columnas a nombres descriptivos en español.
+    5. Conversión de campos numéricos (velocidad_maxima, carriles).
+    6. Generación de perfil de calidad de datos por columna.
+    7. Validación de geometrías y detección de duplicados.
+=============================================================================
+"""
 import geopandas as gpd
 import pandas as pd
 import unicodedata
