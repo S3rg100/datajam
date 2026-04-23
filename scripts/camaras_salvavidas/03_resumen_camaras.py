@@ -1,3 +1,29 @@
+# -*- coding: utf-8 -*-
+"""
+=============================================================================
+  RESUMEN ESTADÍSTICO DE CÁMARAS SALVAVIDAS - Bogotá D.C.
+=============================================================================
+  Genera tablas de frecuencia, gráficos de barras y tablas cruzadas (heatmaps)
+  a partir de la tabla limpia de cámaras salvavidas.
+
+  ENTRADA:
+    data/cleaned_data/camaras_salvavidas/tabla_camaras_salvavidas_clean.csv
+
+  SALIDAS:
+    outputs/tables/camaras_salvavidas/01_resumen_general/  → Indicadores globales
+    outputs/tables/camaras_salvavidas/02_frecuencias/      → Conteos por categoría
+    outputs/tables/camaras_salvavidas/03_cruces/           → Tablas cruzadas
+    outputs/figures/camaras_salvavidas/frecuencias/        → Gráficos de barras
+    outputs/figures/camaras_salvavidas/cruces/             → Heatmaps de cruces
+
+  ANÁLISIS REALIZADOS:
+    - Frecuencias: localidad, corredor, velocidad máxima, infracción, calzada,
+      sentido y acto administrativo.
+    - Cruces: localidad×velocidad, localidad×infracción, localidad×calzada,
+      localidad×sentido.
+    - Resumen general: total de registros, localidades, corredores, etc.
+=============================================================================
+"""
 import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path

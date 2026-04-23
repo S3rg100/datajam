@@ -1,9 +1,35 @@
+# -*- coding: utf-8 -*-
 """
-Cruce Siniestralidad x Velocidades (2019 y 2022)
-==================================================
-Relaciona accidentes de transito con velocidades promedio en corredores viales
-de Bogota usando proximidad geografica y franja horaria.
-Procesa ambos anios con sus respectivos datasets de velocidades.
+=============================================================================
+  CRUCE SINIESTRALIDAD × VELOCIDADES (2019 y 2022) - Bogotá D.C.
+=============================================================================
+  Relaciona accidentes de tránsito con velocidades promedio en corredores
+  viales de Bogotá usando proximidad geográfica (KDTree) y franja horaria.
+
+  ENTRADAS:
+    data/cleaned_data/Siniestralidad/siniestralidad_clean.csv
+    data/cleaned_data/velocidades/velocidades_2019_final.csv
+    data/cleaned_data/velocidades/velocidades_2022_final.csv
+
+  SALIDAS (por año):
+    data/processed_data/velocidad y siniestralidad {año}/
+      - siniestralidad_con_velocidad_{año}.csv  → Accidentes enriquecidos con vel.
+      - velocidades_{año}_horario.csv           → Vel. promedio por TID y hora
+      - velocidades_{año}_horario_dia_semana.csv → Vel. por TID, hora y día
+    outputs/figures/velocidad y siniestralidad {año}/
+      - 5 gráficas: distribución de distancias, mapa de calor, scatter, etc.
+    outputs/tables/velocidad y siniestralidad {año}/
+      - Tablas resumen por hora, corredor, gravedad
+
+  METODOLOGÍA:
+    1. Carga datos de siniestralidad y velocidades limpios.
+    2. Agrega velocidades por hora para cada segmento (TID).
+    3. Construye un KDTree con los centroides de los TIDs.
+    4. Para cada accidente, busca el TID más cercano (≤500m ≈ 0.005°).
+    5. Asocia la velocidad promedio del TID en la hora del accidente.
+    6. Genera gráficas de distribución de distancias, correlaciones y
+       perfiles de velocidad por gravedad del siniestro.
+=============================================================================
 """
 
 import pandas as pd

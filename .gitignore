@@ -1,0 +1,28 @@
+# ── Datos crudos pesados (>100MB) ──────────────────────────────────────────
+data/raw_data/velocidad/*.csv
+data/cleaned_data/velocidades/velocidades_*_final.csv
+data/cleaned_data/velocidades/velocidades_*_final.parquet
+
+# ── Python ─────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+*.egg
+
+# ── IDE ────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── OS ─────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Temporales ─────────────────────────────────────────────────────────────
+*.tmp
+*.bak
+_audit_temp.py

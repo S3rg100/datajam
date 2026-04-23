@@ -1,5 +1,30 @@
-import pandas as pd
+# -*- coding: utf-8 -*-
+"""
+=============================================================================
+  LIMPIEZA DE SINIESTRALIDAD VIAL - Bogotá D.C.
+=============================================================================
+  Limpia y prepara el dataset crudo de siniestralidad de la Secretaría
+  Distrital de Movilidad para su uso en el análisis comparativo.
 
+  ENTRADA:
+    data/raw_data/Siniestralidad/DataJamSiniestralidad.csv
+      Dataset original con ~150K registros de accidentes viales (todos los años).
+
+  SALIDA:
+    data/cleaned_data/Siniestralidad/siniestralidad_clean.csv
+      Dataset filtrado y limpio con ~4,334 registros (solo octubre 2019 y 2022).
+
+  TRANSFORMACIONES APLICADAS:
+    1. Columnas Con_* (booleanas): "SI" → 1, NaN → 0 (codificación binaria).
+    2. Valores nulos en columnas de texto: rellenados con "N/A".
+    3. Filtro temporal: solo registros de octubre 2019 y octubre 2022.
+    4. Eliminación de columnas innecesarias: Formulario, Gravedad_indicador_30d,
+       Fecha_Acc (redundante con AA_Acc y MM_Acc).
+    5. Normalización de texto: Localidad, Gravedad y Tipo_Objeto_Fijo a formato
+       Title Case para uniformidad.
+=============================================================================
+"""
+import pandas as pd
 from pathlib import Path
 
 # ==========================================

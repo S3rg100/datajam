@@ -1,8 +1,41 @@
+# -*- coding: utf-8 -*-
 """
-Analisis de Impacto de Camaras Salvavidas (2019 vs 2022)
-=========================================================
-Compara velocidades y accidentalidad en corredores con camaras
-salvavidas entre octubre 2019 (pre-camara) y octubre 2022 (post-camara).
+=============================================================================
+  ANÁLISIS DE IMPACTO DE CÁMARAS SALVAVIDAS (2019 vs 2022) - Bogotá D.C.
+=============================================================================
+  Compara velocidades y accidentalidad en corredores con cámaras salvavidas
+  entre octubre 2019 (pre-instalación) y octubre 2022 (post-instalación).
+
+  ENTRADAS:
+    data/cleaned_data/camaras_salvavidas/tabla_camaras_salvavidas_clean.csv
+    data/processed_data/velocidad y siniestralidad 2019/
+      - velocidades_2019_horario.csv
+      - siniestralidad_con_velocidad_2019.csv
+    data/processed_data/velocidad y siniestralidad 2022/
+      - velocidades_2022_horario.csv
+      - siniestralidad_con_velocidad_2022.csv
+
+  SALIDAS:
+    data/processed_data/camaras_salvavidas/
+      - camaras_con_tid.csv          → Cámaras con su TID más cercano por año
+      - accidentes_cerca_camaras.csv → 817 accidentes a ≤500m de una cámara
+    outputs/tables/camaras_salvavidas/
+      - comparativa_velocidad_por_hora.csv
+      - comparativa_velocidad_por_corredor.csv
+      - comparativa_accidentes_por_corredor.csv
+      - comparativa_accidentes_por_gravedad.csv
+      - comparativa_accidentes_por_hora.csv
+      - resumen_impacto_camaras.csv
+    outputs/figures/camaras_salvavidas/
+      - 6 gráficas comparativas (perfil horario, delta velocidad, gravedad, etc.)
+
+  METODOLOGÍA:
+    1. Deduplica cámaras por ubicación geográfica (85 ubicaciones únicas).
+    2. Cruza cámaras con TIDs de velocidad usando KDTree (≤500m).
+    3. Cruza cámaras con accidentes por proximidad geográfica.
+    4. Calcula deltas de velocidad y accidentalidad por corredor.
+    5. Genera visualizaciones comparativas 2019 vs 2022.
+=============================================================================
 """
 import pandas as pd
 import numpy as np
