@@ -1,5 +1,11 @@
 # Data Jam – Velocidad, siniestralidad y cámaras salvavidas en Bogotá D.C.
 
+## Creadores del proyecto
+
+- **Matias Felipe Gonzalez Valencia** — Ingeniería de Sistemas — Pontificia Universidad Javeriana  
+- **Sergio Asencio Rodriguez** — Ingeniería de Sistemas — Pontificia Universidad Javeriana  
+- **Brayan Nicolas Sarmiento Merchan** — Ingeniería de Sistemas -- Ciencia de Datos — Pontificia Universidad Javeriana
+
 ## Descripción
 Este proyecto analiza la relación entre la velocidad promedio de circulación, los siniestros viales y la ubicación de cámaras salvavidas en Bogotá D.C., comparando 2019 y 2022.
 
